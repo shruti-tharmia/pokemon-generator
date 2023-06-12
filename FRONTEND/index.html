@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/pokeball.png"
+      type="image/x-icon"
+    />
+    <script src="./script.js" defer></script>
+    <script src="./get.js" defer></script>
+    <script src="./post.js" defer></script>
+
+    <title>Pokemon-Generation-App</title>
+  </head>
+  <body>
+    <header class="header">
+      <img src="./images/pokeball.png" class="headingLogo">
+      <h1 class="heading">Pokemon Generator</h1>
+      <button type="button" onclick="div_show()" id="add" class="add">
+        Add
+      </button>
+    </header>
+    <div id="main-area"></div>
+    <section class="newForm" id="newForm">
+      <div id="popupForm" class="popupForm">
+        <form method="post" action="http://localhost:4200/pokemon/" id="mainForm">
+          <label for="form-img"
+            >Enter the Image URL :
+            <input
+              type="url"
+              class="box"
+              id="url"
+              autocomplete="off"
+              placeholder="https://google.com/"
+              required
+              name="url"
+          /></label>
+          <label for="form-name"
+            >Enter the Name :
+            <input
+              type="text"
+              class="box"
+              id="name"
+              autocomplete="off"
+              placeholder="Pikachu"
+              required
+              name="name"
+          /></label>
+          <label for="form-type"
+            >Enter the Type :
+            <input
+              type="text"
+              class="box"
+              autocomplete="off"
+              id="type"
+              placeholder="Electric"
+              required
+              name="type"
+          /></label>
+          <label for="form-evolution-cycle"
+            >Enter Evolution :
+            <input
+              type="text"
+              autocomplete="off"
+              class="box"
+              id="evolutionCycle"
+              placeholder="Pichu-Pikachu-Raichu"
+              required
+              name="evolutionCycle"
+          /></label>
+          <label for="form-weakness"
+            >Enter Weakness :
+            <input
+              type="text"
+              class="box"
+              autocomplete="off"
+              id="weakness"
+              placeholder="Fire,ground"
+              required
+              name="weakness"
+          /></label>
+          <label for="form-attack"
+            >Enter Attacks :
+            <input
+              type="text"
+              class="box"
+              autocomplete="off"
+              id="attacks"
+              placeholder="Tail-whip,Kick,Roll (minimum 3) "
+              required
+              name="attacks"
+          /></label>
+          <label for="form-save"
+            ><button type="submit" id="save" class="save" onclick="div_hide()">Save</button></label
+          ><label for="form-save"
+            ><button
+              type="button"
+              id="close"
+              class="close"
+              onclick="div_hide()"
+            >
+              Close
+            </button></label
+          >
+        </form>
+        <div class="back"></div>
+      </div>
+    </section>
+
+    <section id="deleteForm" class="deleteForm">
+      <h2>Are you sure?</h2>
+      <button id="yes" onclick="deleteRequest(),delete_hide(),displayPokemon()">Yes</button>
+      <button id="no" onclick="delete_hide()">No</button>
+    </section>
+    <div class="pop-up-error" id="errorMessage">
+      <h3 id="errorMessage"></h3>
+    </div>
+    <footer class="footer" id="footer">
+      <button onclick="delete_show()" id="delete" class="delete">Delete</button>
+    </footer>
+    <div class="background" id="background"></div>
+  </body>
+</html>
